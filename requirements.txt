@@ -1,7 +1,7 @@
+os
 dotenv
 streamlit
 langchain
 langchain-community
 yfinance
-deepseeks
-langchain-deepseek
+groq

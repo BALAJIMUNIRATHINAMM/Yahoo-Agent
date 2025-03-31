@@ -1,7 +1,7 @@
 import os
 import streamlit as st
 from langchain.agents import initialize_agent, AgentType
-from langchain.llms import DeepSeekLLM
+from langchain.llms import Groq
 from langchain.tools import Tool
 import yfinance as yf
 from dotenv import load_dotenv
@@ -17,9 +17,9 @@ def get_stock_price(ticker: str):
         return f"{ticker.upper()} Latest Price: ${data['Close'].iloc[-1]:.2f}"
     return "Invalid ticker or no data available."
 
-# Initialize DeepSeek LLM using API key from .env
-os.environ["DEEPSEEK_API_KEY"] = os.getenv("DEEPSEEK_API_KEY")
-llm = DeepSeekLLM(model_name="deepseek-r1-distill-llama-70b")
+# Initialize Groq LLM using API key from .env
+os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
+llm = Groq(model_name="deepseek-r1-distill-llama-70b")
 
 # Define Yahoo Finance tool
 yahoo_finance_tool = Tool(
@@ -52,15 +52,16 @@ requirements = """\nos
 dotenv
 streamlit
 langchain
+langchain-community
 yfinance
-deepseek-llm
+groq
 """
 
 with open("requirements.txt", "w") as f:
     f.write(requirements)
 
 # Create .env file template
-env_content = """\n# Add your API keys here\nDEEPSEEK_API_KEY=your-deepseek-api-key\n"""
+env_content = """\n# Add your API keys here\nGROQ_API_KEY=your-groq-api-key\n"""
 
 with open(".env", "w") as f:
     f.write(env_content)
