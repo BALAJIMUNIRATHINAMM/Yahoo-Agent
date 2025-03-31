@@ -47,21 +47,3 @@ if st.button("Get Stock Price"):
     else:
         st.write("Please enter a valid stock ticker.")
 
-# requirements.txt content
-requirements = """\nos
-dotenv
-streamlit
-langchain
-langchain-community
-yfinance
-groq
-"""
-
-with open("requirements.txt", "w") as f:
-    f.write(requirements)
-
-# Create .env file template
-env_content = """\n# Add your API keys here\nGROQ_API_KEY=your-groq-api-key\n"""
-
-with open(".env", "w") as f:
-    f.write(env_content)
