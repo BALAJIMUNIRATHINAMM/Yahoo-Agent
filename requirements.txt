@@ -1,7 +1,7 @@
-os
-dotenv
+python-dotenv
 streamlit
 langchain
 langchain-community
 yfinance
 groq
+
