@@ -3,4 +3,5 @@ streamlit
 langchain
 langchain-community
 yfinance
-deepseek
+deepseeks
+langchain-deepseek
